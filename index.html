@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta property="og:image" content="https://i.imgur.com/K5Gno4O.jpg" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="/js/vegas/vegas.min.css">
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
     
@@ -27,6 +29,9 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+    
+
     
   </head>
   <body>
@@ -161,6 +166,10 @@
       </div>
     </div>
 
+  <br>
+    <div id="map" style="width: 600px; height: 600px; margin-left: auto; margin-right: auto;"></div>
+    <br>
+
     <div class="site-block-half d-flex images">
       <div class="image bg-image" style="background-image: url('https://i.imgur.com/rDSZqXY.jpg');">
       </div>
@@ -230,7 +239,7 @@
             <div>
               <span class="icon-comments text-white h2 d-block"></span>
               <h2>Email</h2>
-              <p class="mb-0">Email: Back2BaySics@outlook.com</p>
+              <p class="mb-0">Back2BaySics@outlook.com</p>
             </div>
           </div>
         </div>
@@ -306,7 +315,7 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="/js/vegas/vegas.min.js"></script>
-
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
 
   
   <script src="js/mediaelement-and-player.min.js"></script>
@@ -331,6 +340,92 @@
                 });
                 }
             });
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoiamhhbGwwMzEwIiwiYSI6ImNrNHJvYjRhNzRjMzUza282b3h3MXAxaTcifQ.XOO9UUbc7zAd0zSfm2toXw';
+                console.log('Hell0');
+
+              
+
+
+
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
+                center: [-122.463, 37.7648], // starting position
+                zoom: 10// starting zoom
+                });
+
+                var geojson = {
+                type: 'FeatureCollection',
+                  features: [{
+                    type: 'Feature',
+                    geometry: {
+                      type: 'Point',
+                      coordinates: [-122.5107, 37.7594]
+                      },
+                      properties: {
+                      title: 'Ocean Beach',
+                      description: 'San Francisco, CA'
+                      }
+                    },
+
+                    {
+                    type: 'Feature',
+                    geometry: {
+                      type: 'Point',
+                      coordinates: [-122.2763465, 37.7872592]
+                      },
+                      properties: {
+                      title: 'Sunday Yacht Formal',
+                      description: 'Alameda, CA'
+                      }
+                    },
+
+                    {
+                    type: 'Feature',
+                    geometry: {
+                      type: 'Point',
+                      coordinates: [-122.4215052, 37.7625479]
+                      },
+                      properties: {
+                      title: 'The Valencia Room',
+                      description: 'San Francisco, CA'
+                      }
+                    },
+
+
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-122.3977959, 37.7566284]
+    },
+    properties: {
+      title: 'Potero Hill - Basketball Tournament',
+      description: 'San Francisco, California'
+    }
+  }]
+};
+
+              geojson.features.forEach(function(marker) {
+
+
+              var el = document.createElement('div');
+              el.className = 'marker';
+
+              new mapboxgl.Marker(el)
+              .setLngLat(marker.geometry.coordinates)
+              .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+              .setHTML('<strong>' + marker.properties.title + '</strong><p>' + marker.properties.description + '</p>'))
+              .addTo(map);
+              });
+
+              
+
+
+
+
+
     </script>
 
   </body>
