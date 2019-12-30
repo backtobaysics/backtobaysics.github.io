@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="/js/vegas/vegas.min.css">
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
-    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
+    
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
     
@@ -153,14 +153,14 @@
             <div class="speaker text-left">
               <a href="https://www.eventbrite.com/e/baysics-presents-the-bayball-basketball-tournamentblack-white-affair-tickets-72643624035" class="d-block mb-3 thumbnail"><img src="https://i.imgur.com/7i1YBq0.jpg" alt="Image" class="img-fluid"></a>
               <h3 class="heading mb-0"><a href="#"><span> Saturday Basketball Tournament &</span> After Party</a></h3>
-              <p>An All day basketball tournament followed by the after party held in San Francisco.</p>
+              <p>An All day basketball tournament followed by the after party held in the Valencia Room in downtown San Francisco.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4">
             <div class="speaker text-left">
               <a href="https://www.eventbrite.com/e/baysics-presents-the-bayball-basketball-tournamentblack-white-affair-tickets-72643624035" class="d-block mb-3 thumbnail"><img src="https://i.imgur.com/28SS42c.jpg" alt="Image" class="img-fluid"></a>
               <h3 class="heading mb-0"><a href="#"><span>Sunday</span> Yacht Formal Dinner</a></h3>
-              <p> Join us in the East Bay for Baysic's Black & White Affair. This dinner formal will be held on a yacht which will cruise the San Francisco Bay!</p>
+              <p> Join us in the East Bay for Baysic's Black & White Affair. This dinner formal will be held on the Cabernet Sauvignon luxury yacht, which will cruise the San Francisco Bay!</p>
             </div>
           </div>
         </div>
@@ -418,7 +418,7 @@
               new mapboxgl.Marker(el)
               .setLngLat(marker.geometry.coordinates)
               .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-              .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+              .setHTML('<h6>' + marker.properties.title + '</h6><p>' + marker.properties.description + '</p>'))
               .addTo(map);
               });
 
