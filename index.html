@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="/js/vegas/vegas.min.css">
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
+    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
     
@@ -316,6 +317,7 @@
   <script src="js/aos.js"></script>
   <script src="/js/vegas/vegas.min.js"></script>
   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
+  <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
 
   
   <script src="js/mediaelement-and-player.min.js"></script>
@@ -402,7 +404,7 @@
     },
     properties: {
       title: 'Potero Hill - Basketball Tournament',
-      description: 'San Francisco, CA'
+      description: 'San Francisco, California'
     }
   }]
 };
@@ -416,7 +418,7 @@
               new mapboxgl.Marker(el)
               .setLngLat(marker.geometry.coordinates)
               .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-              .setHTML('<strong>' + marker.properties.title + '</strong><p>' + marker.properties.description + '</p>'))
+              .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
               .addTo(map);
               });
 
